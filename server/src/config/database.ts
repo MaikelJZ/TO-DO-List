@@ -13,16 +13,17 @@ const pool = new Pool({
   port: Number(process.env.DB_PORT) || 5432,
 });
 
-// Testar a conexão ao iniciar a aplicação
-// Testar a conexão ao iniciar a aplicação
+// Para testar a conexão ao iniciar a aplicação
+/*
 pool.connect((err, client, release) => {
   if (err) {
     console.error('❌ Erro detalhado ao conectar ao banco:', err.message);
-    console.error('👉 Verifique se o seu PostgreSQL está ativo e se o banco "todo_db" foi criado.');
+    console.error('Verifique se o seu PostgreSQL está ativo e se a base de dados "TO-DO" foi criado.');
   } else {
     console.log('✅ Conexão com o PostgreSQL estabelecida com sucesso!');
     release(); // Libera o cliente de volta para o pool
   }
 });
+*/
 
 export default pool;

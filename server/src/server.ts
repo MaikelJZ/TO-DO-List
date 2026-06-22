@@ -19,5 +19,5 @@ app.get('/', async (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`🚀 Servidor full-stack iniciado em http://localhost:${PORT}`);
+  console.log(`🚀 Servidor rodando em http://localhost:${PORT} e a aplicação em http://127.0.0.1:5500/client/index.html`);
 });
