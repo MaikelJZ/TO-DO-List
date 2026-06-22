@@ -24,3 +24,4 @@ controle/dados (back-end) e a interface do usuário (front-end).
 para garantir a responsividade.<Br>
 - Consumir os dados via requisições assíncronas (fetch – async/await) para carregar, criar,
 atualizar e deletar as tarefas em tempo real, sem a necessidade de recarregar a página.
+
