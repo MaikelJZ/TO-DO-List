@@ -47,7 +47,8 @@ export class TodoController {
         return;
       }
 
-      const updatedTodo = await TodoModel.toggleStatus(id, completed);
+      const status = completed ? 'C' : 'P';
+      const updatedTodo = await TodoModel.toggleStatus(id, status);
 
       if (!updatedTodo) {
         res.status(404).json({ message: 'Tarefa não encontrada.' });
