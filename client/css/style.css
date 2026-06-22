@@ -1,0 +1,14 @@
+/* Efeito de linha riscada para tarefas concluídas */
+.todo-completed {
+    text-decoration: line-through;
+    color: #6c757d;
+    transition: all 0.3s ease;
+}
+
+/* Transição suave ao passar o mouse nos itens da lista */
+.list-group-item {
+    transition: background-color 0.2s ease;
+}
+.list-group-item:hover {
+    background-color: #f8f9fa;
+}
