@@ -1,26 +1,37 @@
-Abaixo todo os comandos utilizados no console
+## Entrando na aplicação  
+No Console do Visual Studio Code digite o comando abaixo, para inicar o servidor
+```
+npm run dev
+```
+e acesse o link abaixo no navegador, que vai ser onde está a aplicação.
+```
+http://127.0.0.1:5500/client/index.html
+```
 
-# Cria as pastas do projeto de forma estruturada
+## Abaixo todo os comandos que foram utilizados no console, para criar a aplicação
+
+### Cria as pastas do projeto de forma estruturada:
+```
 mkdir client
 mkdir -p server/src/config server/src/controllers server/src/models server/src/routes
-
-# os pacotes (dependências) pertencem ao back-end, precisamos entrar na pasta server:
+```
+###  os pacotes (dependências), precisa entrar na pasta server:
+```
 cd server
-
-#  criar o arquivo package.json, que guardará o registro de todos os pacotes que vamos instalar:
+```
+###  Criar o arquivo package.json, que guardará o registro de todos os pacotes:
+```
 npm init -y
-
-# os pacotes essenciais que a aplicação precisa para rodar (Express para as rotas e pg para conectar ao PostgreSQL):
+```
+###  Os pacotes essenciais que a aplicação precisa para rodar (Express para as rotas e pg para conectar ao PostgreSQL):
+```
 npm install express pg dotenv
-
-# Elas servem para habilitar o TypeScript e reiniciar o servidor automaticamente a cada alteração:
+```
+###  Habilitar o TypeScript e reiniciar o servidor automaticamente a cada alteração:
+```
 npm install -D typescript @types/node @types/express @types/pg ts-node-dev
-
-# Por fim, gere o arquivo de configuração do TypeScript (tsconfig.json):
+```
+###  Arquivo de configuração do TypeScript (tsconfig.json):
+```
 npx tsc --init
-
-Entrando na aplicação
-No Console digite o comando abaixo
-npm run dev
-e acesse o link abaixo
-http://127.0.0.1:5500/client/index.html
+```
