@@ -2,8 +2,8 @@
 No Console do Visual Studio Code digite os comandos abaixo, para entrar na pasta do servidor
 ```
 cd server
-e depois este, para inicar o servidor
 ```
+e depois este, para inicar o servidor
 ```
 npm run dev
 ```
