@@ -1,4 +1,5 @@
-const API_URL = 'http://localhost:3000/api/todos';
+
+const API_URL = '/api/todos';
 
 const todoService = {
     // GET /api/todos

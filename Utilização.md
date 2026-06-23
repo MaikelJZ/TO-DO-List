@@ -39,3 +39,5 @@ npm install -D typescript @types/node @types/express @types/pg ts-node-dev
 ```
 npx tsc --init
 ```
+###  Arquivo de configuração para navegador
+npm install -D open
