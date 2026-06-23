@@ -1,6 +1,9 @@
 ## Entrando na aplicação  
 No Console do Visual Studio Code digite o comando abaixo, para inicar o servidor
 ```
+cd server
+```
+```
 npm run dev
 ```
 e acesse o link abaixo no navegador, que vai ser onde está a aplicação.
