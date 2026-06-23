@@ -40,4 +40,13 @@ export class TodoModel {
     const result = await pool.query(query, values);
     return (result.rowCount ?? 0) > 0;
   }
+
+  static async update(id: number, novoTexto: string): Promise<ITodo | null> {
+    const query = 'UPDATE tarefas SET tarefa = $1, data_atualizacao = CURRENT_TIMESTAMP WHERE id = $2 RETURNING *';
+    const values = [novoTexto, id];
+    const result = await pool.query(query, values);
+    
+    if (result.rows.length === 0) return null;
+    return result.rows[0];
+  }
 }

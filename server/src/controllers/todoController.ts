@@ -83,4 +83,32 @@ export class TodoController {
       res.status(500).json({ message: 'Erro ao excluir tarefa', error: error.message });
     }
   }
+
+  static async update(req: Request, res: Response): Promise<void> {
+  try {
+    const id = Number(req.params.id);
+    const { title } = req.body; // Mantendo o padrão do body que você já usa
+
+    if (isNaN(id)) {
+      res.status(400).json({ message: 'ID inválido.' });
+      return;
+    }
+
+    if (!title || typeof title !== 'string' || title.trim() === '') {
+      res.status(400).json({ message: 'O novo texto da tarefa é obrigatório.' });
+      return;
+    }
+
+    const updatedTodo = await TodoModel.update(id, title.trim());
+
+    if (!updatedTodo) {
+      res.status(404).json({ message: 'Tarefa não encontrada.' });
+      return;
+    }
+
+    res.json(updatedTodo);
+  } catch (error: any) {
+    res.status(500).json({ message: 'Erro ao editar tarefa', error: error.message });
+  }
+}
 }

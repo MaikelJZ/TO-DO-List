@@ -7,7 +7,7 @@ const emptyState = document.getElementById('empty-state');
 // Carregar tarefas do banco de dados assim que a página abrir
 document.addEventListener('DOMContentLoaded', fetchTodos);
 
-// Função para buscar as tarefas do Back-end
+// Função para buscar as tarefas
 async function fetchTodos() {
     try {
         const todos = await todoService.getAll();
@@ -17,7 +17,7 @@ async function fetchTodos() {
     }
 }
 
-// Função para renderizar as tarefas na tela (Bootstrap 5.3)
+// Função para renderizar as tarefas na tela
 function renderTodos(todos) {
     todoList.innerHTML = '';
     
@@ -32,17 +32,21 @@ function renderTodos(todos) {
         const li = document.createElement('li');
         li.className = 'list-group-item d-flex justify-content-between align-items-center px-0 py-3';
         
-        // Verifica se está concluído com base no caractere 'C'
         const isCompleted = todo.status === 'C';
 
         li.innerHTML = `
-            <div class="d-flex align-items-center">
+            <div class="d-flex align-items-center flex-grow-1">
                 <input class="form-check-input me-3" type="checkbox" ${isCompleted ? 'checked' : ''} onchange="toggleTodo(${todo.id}, this.checked)">
                 <span class="${isCompleted ? 'todo-completed' : ''}">${todo.tarefa}</span>
             </div>
-            <button class="btn btn-sm btn-outline-danger border-0" onclick="deleteTodo(${todo.id})">
-                <i class="bi bi-trash"></i>
-            </button>
+            <div class="btn-group">
+                <button class="btn btn-sm btn-outline-secondary border-0 me-1" onclick="editTodo(${todo.id}, '${todo.tarefa.replace(/'/g, "\\'")}')" ${isCompleted ? 'disabled' : ''}>
+                    <i class="bi bi-pencil"></i>
+                </button>
+                <button class="btn btn-sm btn-outline-danger border-0" onclick="deleteTodo(${todo.id})">
+                    <i class="bi bi-trash"></i>
+                </button>
+            </div>
         `;
         todoList.appendChild(li);
     });
@@ -83,5 +87,22 @@ async function deleteTodo(id) {
         } catch (error) {
             console.error('Erro ao excluir tarefa:', error);
         }
+    }
+}
+
+// Função para editar o texto da tarefa
+async function editTodo(id, textoAtual) {
+    const novoTexto = prompt('Edite o texto da sua tarefa:', textoAtual);
+    
+    // Se o usuário cancelou ou deixou em branco, não faz nada
+    if (novoTexto === null || novoTexto.trim() === '') return;
+
+    if (novoTexto.trim() === textoAtual) return; // Se não mudou nada, ignora
+
+    try {
+        await todoService.updateText(id, novoTexto.trim());
+        fetchTodos(); // Atualiza a tela em tempo real com o novo nome vindo do banco
+    } catch (error) {
+        console.error('Erro ao editar tarefa:', error);
     }
 }
