@@ -1,0 +1,12 @@
+
+/*Criação da base de dados*/
+CREATE DATABASE "TO-DO";
+
+/*Única Tabela do BD*/
+CREATE TABLE tarefas (
+id SERIAL PRIMARY KEY,
+tarefa VARCHAR(50) NOT NULL,
+status CHAR(1) NOT NULL DEFAULT 'P',
+data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+data_atualizacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+); 
