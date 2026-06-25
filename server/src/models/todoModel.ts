@@ -1,6 +1,5 @@
 import pool from '../config/database';
 
-// Ajustando a interface para refletir suas novas colunas
 export interface ITodo {
   id: number;
   tarefa: string;

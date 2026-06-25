@@ -26,7 +26,6 @@ PORT=3000
 DB_USER=postgres
 DB_HOST=localhost
 DB_DATABASE=TO-DO
-DB_PASSWORD=mysql
 DB_PORT=5432
 ```
 

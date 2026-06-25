@@ -1,4 +1,3 @@
-// Elementos do DOM
 const todoForm = document.getElementById('todo-form');
 const todoInput = document.getElementById('todo-input');
 const todoList = document.getElementById('todo-list');
@@ -52,7 +51,7 @@ function renderTodos(todos) {
     });
 }
 
-// Evento para adicionar uma nova tarefa
+// Função para adicionar uma nova tarefa
 todoForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const tarefaTexto = todoInput.value.trim();
@@ -101,7 +100,7 @@ async function editTodo(id, textoAtual) {
 
     try {
         await todoService.updateText(id, novoTexto.trim());
-        fetchTodos(); // Atualiza a tela em tempo real com o novo nome vindo do banco
+        fetchTodos(); // Atualiza a tela em tempo real 
     } catch (error) {
         console.error('Erro ao editar tarefa:', error);
     }
