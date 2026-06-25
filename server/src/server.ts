@@ -9,16 +9,14 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middlewares globais
-app.use(cors()); // Permite que o front-end acesse a API sem erros de segurança
+app.use(cors());
 app.use(express.json());
 
 const caminhoClient = path.resolve(__dirname, '../../client');
 app.use(express.static(caminhoClient));
 
-// Vincula as rotas de tarefas ao prefixo '/api/todos'
 app.use('/api/todos', todoRoutes);
 
-// Rota base para verificação simples
 app.get('/', (req, res) => {
   res.sendFile(path.join(caminhoClient, 'index.html'));
 });

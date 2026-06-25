@@ -36,7 +36,7 @@ function renderTodos(todos) {
 
         li.innerHTML = `
             <div class="d-flex align-items-center flex-grow-1">
-                <input class="form-check-input me-3" type="checkbox" ${isCompleted ? 'checked' : ''} onchange="toggleTodo(${todo.id}, this.checked)">
+                <input class="form-check-input me-3 border border-secondary" type="checkbox" ${isCompleted ? 'checked' : ''} onchange="toggleTodo(${todo.id}, this.checked)">
                 <span class="${isCompleted ? 'todo-completed' : ''}">${todo.tarefa}</span>
             </div>
             <div class="btn-group">

@@ -2,33 +2,33 @@
 const API_URL = '/api/todos';
 
 const todoService = {
-    // GET /api/todos
+    // GET 
     async getAll() {
         const response = await fetch(API_URL);
         return await response.json();
     },
 
-    // POST /api/todos
-    async create(tarefa) { // trocado de title para tarefa
+    // POST 
+    async create(tarefa) {
         const response = await fetch(API_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ title: tarefa }) // O controller ainda espera 'title' do body, mapeando para o banco
+            body: JSON.stringify({ title: tarefa })
         });
     return await response.json();
     },
 
-    // PUT /api/todos/:id
+    // PUT 
     async toggleStatus(id, status) { // agora passa 'P' ou 'C'
         const response = await fetch(`${API_URL}/${id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ completed: status === 'C' }) // Converte para o que o controller espera
+            body: JSON.stringify({ completed: status === 'C' }) 
         });
     return await response.json();
     },
 
-    // DELETE /api/todos/:id
+    // DELETE 
     async delete(id) {
         const response = await fetch(`${API_URL}/${id}`, {
             method: 'DELETE'
@@ -36,7 +36,6 @@ const todoService = {
         return response.ok;
     },
 
-    // Adicione dentro do objeto todoService em client/js/api.js
     async updateText(id, novoTexto) {
         const response = await fetch(`${API_URL}/${id}`, {
             method: 'PATCH',

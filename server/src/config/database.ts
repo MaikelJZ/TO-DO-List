@@ -17,10 +17,10 @@ const pool = new Pool({
 /*
 pool.connect((err, client, release) => {
   if (err) {
-    console.error('❌ Erro detalhado ao conectar ao banco:', err.message);
+    console.error(' Erro ao conectar-se ao banco:', err.message);
     console.error('Verifique se o seu PostgreSQL está ativo e se a base de dados "TO-DO" foi criado.');
   } else {
-    console.log('✅ Conexão com o PostgreSQL estabelecida com sucesso!');
+    console.log(' Conexão com o PostgreSQL estabelecida com sucesso!');
     release(); // Libera o cliente de volta para o pool
   }
 });

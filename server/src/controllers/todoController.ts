@@ -3,7 +3,7 @@ import { TodoModel } from '../models/todoModel';
 
 export class TodoController {
   
-  // GET /api/todos
+  // GET
   static async getAll(req: Request, res: Response): Promise<void> {
     try {
       const todos = await TodoModel.getAll();
@@ -13,7 +13,7 @@ export class TodoController {
     }
   }
 
-  // POST /api/todos
+  // POST 
   static async create(req: Request, res: Response): Promise<void> {
     try {
       const { title } = req.body;
@@ -31,7 +31,7 @@ export class TodoController {
     }
   }
 
-  // PUT /api/todos/:id
+  // PUT 
   static async toggleStatus(req: Request, res: Response): Promise<void> {
     try {
       const id = Number(req.params.id);
@@ -61,7 +61,7 @@ export class TodoController {
     }
   }
 
-  // DELETE /api/todos/:id
+  // DELETE 
   static async delete(req: Request, res: Response): Promise<void> {
     try {
       const id = Number(req.params.id);
